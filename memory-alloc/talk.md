@@ -10,9 +10,7 @@ BeiJing 2016-10-7
 
 * OS X 
 
-## Starting Program
-
-### Stack Allocation Limit
+## Stack Allocation Limit
 ```go
 // array_test.go
 
@@ -36,10 +34,7 @@ func BenchmarkEaArray2(b *testing.B) {
 	}
 }
 ```
-#### Test
-```
-$ go test -bench="." array_test.go
-```
+
 ```go
 // array.go
 
@@ -55,9 +50,9 @@ func main() {
 // 	_ = arr
 // }
 ```
-
-#### Compile
+### Test && Compile
 ```
+$ go test -bench="." array_test.go
 $ go tool compile -S array.go
 ```
 

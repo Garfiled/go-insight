@@ -7,6 +7,17 @@
 * gc
 * fd
 
+## Use
+```go
+func goProcMonitor(dur time.Duration) {
+    ticker := time.Tick(dur)
+    for range ticker {
+        stats := gomonitor.GetRuntimeStats()
+        fmt.Printf("gomonitor:%+v\n", stats)
+    }
+}
+```
+## gomonitor.go
 ```go
 package gomonitor
 

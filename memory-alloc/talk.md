@@ -4,13 +4,13 @@ liuguixiang
 
 BeiJing 2016-10-7
 
-## Env
+## Environment
 
 * Go 1.7
 
-* OS X 
+* OS X
 
-## Test && Compile && Escape Analysis 
+## Test && Compile && Escape Analysis
 ```
 $ go test -bench="." xxx_test.go
 $ go tool compile -S xxx.go

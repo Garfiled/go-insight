@@ -10,9 +10,17 @@ BeiJing 2016-10-7
 
 * OS X 
 
+## Test && Compile && Escape Analysis 
+```
+$ go test -bench="." xxx_test.go
+$ go tool compile -S xxx.go
+$ go build -gcflags "-m" xxx.go
+$ go build -gcflags "-m -m" xxx.go
+$ go build -gcflags "-m -m -m -m" xxx.go
+```
 ## Stack Allocation Limit
-### array_test.go && array.go
 ```go
+// array_test.go
 package main
 
 import "testing"
@@ -35,6 +43,7 @@ func BenchmarkEaArray2(b *testing.B) {
 ```
 
 ```go
+// array.go
 package main
 
 func main() {
@@ -47,14 +56,9 @@ func main() {
 // 	_ = arr
 // }
 ```
-### test && compile
-```
-$ go test -bench="." array_test.go
-$ go tool compile -S array.go
-```
 ## Slice Make
-### makeslice_test.go && makeslice.go
 ```go
+// makeslice.go
 package main
 
 import (
@@ -91,6 +95,7 @@ func BenchmarkMakeSlice64KB(b *testing.B) {
 ```
 
 ```go
+// makeslice.go
 package main
 
 func main() {
@@ -109,15 +114,9 @@ func main() {
 // 	_ = s
 // }
 ```
-### test && go compile
-```
-$ go test -bench="." makeslice_test.go
-$ go tool compile -S makeslice.go
-```
-
 ## Slice Append
-### sliceappend_test.go && sliceappend.go
 ```go
+// sliceappend_test.go
 package main
 
 import (
@@ -139,6 +138,7 @@ func BenchmarkSliceAppend(b *testing.B) {
 }
 ```
 ```go
+// sliceappend.go
 package main
 
 func main() {
@@ -151,9 +151,4 @@ func main() {
 	p = append(p, 6)
 	p = append(p, 7)
 }
-```
-### test && go compile
-```
-$ go test -bench="." sliceappend_test.go
-$ go tool compile -S sliceappend.go
 ```

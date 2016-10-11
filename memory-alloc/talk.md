@@ -58,7 +58,7 @@ func main() {
 ```
 ## Slice Make
 Constant propagation happens in SSA, which happens after escape analysis
-have proposed a log issue and Go1.8 Maybe
+and I have proposed a log issue, Go1.8 Maybe fix it .
 https://github.com/golang/go/issues/17275
 
 ```go
